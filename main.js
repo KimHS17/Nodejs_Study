@@ -1,3 +1,17 @@
+const express = require('express')
+const app = express()
+
+var topic = require('./lib/topic.js');
+
+app.get('/', (request, response) => {
+    topic.home(request, response);
+})
+
+app.get('/')
+
+app.listen(3000, () => console.log("Example app listening on port 3000!"))
+
+/*
 var http = require('http');
 var url = require('url');
 var qs = require('querystring');
@@ -55,3 +69,4 @@ var app = http.createServer(function(request,response){
     }
 });
 app.listen(3000);
+*/
