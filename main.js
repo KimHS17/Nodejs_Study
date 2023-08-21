@@ -2,12 +2,35 @@ const express = require('express')
 const app = express()
 
 var topic = require('./lib/topic.js');
+var author = require('./lib/author.js');
 
 app.get('/', (request, response) => {
     topic.home(request, response);
 })
 
-app.get('/')
+app.get('/page/:pageId', (request, response) => {
+  topic.page(request, response);
+})
+
+app.get('/create', (request, response) => {
+  topic.create(request, response);
+})
+
+app.post('/create_process', (request, response) => {
+  topic.create_process(request, response);
+})
+
+app.get('/update/:pageId', (request, response) => {
+  topic.update(request, response);
+})
+
+app.post('/update_process', (request, response) => {
+  topic.update_process(request, response);
+})
+
+app.post('/delete_process', (request, response) => {
+  topic.delete_process(request, response);
+})
 
 app.listen(3000, () => console.log("Example app listening on port 3000!"))
 
