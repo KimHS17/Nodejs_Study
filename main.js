@@ -4,8 +4,10 @@ const app = express()
 var topic = require('./lib/topic.js');
 var author = require('./lib/author.js');
 var bodyParser = require('body-parser');
+const compression = require('compression');
 
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use(compression());
 
 app.get('/', (request, response) => {
     topic.home(request, response);
