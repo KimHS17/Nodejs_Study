@@ -8,6 +8,7 @@ const compression = require('compression');
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(compression());
+app.use(express.static('public'));
 
 app.get('/', (request, response) => {
     topic.home(request, response);
