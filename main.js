@@ -5,10 +5,12 @@ var topic = require('./lib/topic.js');
 var author = require('./lib/author.js');
 var bodyParser = require('body-parser');
 const compression = require('compression');
+var helmet = require('helmet');
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(compression());
 app.use(express.static('public'));
+app.use(helmet());
 
 app.get('/', (request, response) => {
   topic.home(request, response);
