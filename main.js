@@ -11,7 +11,7 @@ app.use(compression());
 app.use(express.static('public'));
 
 app.get('/', (request, response) => {
-    topic.home(request, response);
+  topic.home(request, response);
 })
 
 app.get('/page/:pageId', (request, response) => {
@@ -57,5 +57,9 @@ app.post('/author/update_process', (request, response) => {
 app.post('/author/delete_process', (request, response) => {
   author.delete_process(request, response);
 })
+
+app.use(function(request, response, next) {
+  response.status(404).send('Sorry cant find that!');
+});
 
 app.listen(3000, () => console.log("Example app listening on port 3000!"))
